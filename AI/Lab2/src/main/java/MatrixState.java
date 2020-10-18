@@ -1,9 +1,9 @@
 public class MatrixState {
-    int columns, rows;
-    Point startingPoint;
-    Point destinationPoint;
-    Point currentPoint;
-    int[][] matrix;
+    public int columns, rows;
+    public Point startingPoint;
+    public Point destinationPoint;
+    public Point currentPoint;
+    public int[][] matrix;
 
     public MatrixState(int columns, int rows) {
         this.columns = columns;
@@ -30,28 +30,8 @@ public class MatrixState {
             }
     }
 
-
-    public Point getStartingPoint() {
-        return startingPoint;
-    }
-
-    public void setStartingPoint(Point startingPoint) {
-        this.startingPoint = startingPoint;
-    }
-
-    public Point getDestinationPoint() {
-        return destinationPoint;
-    }
-
-    public void setDestinationPoint(Point destinationPoint) {
-        this.destinationPoint = destinationPoint;
-    }
-    public Point getCurrentPoint() {
-        return currentPoint;
-    }
-
-    public void setCurrentPoint(Point currentPoint) {
-        this.currentPoint = currentPoint;
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
     }
 
     public boolean isFinal(Point currentPoint){
@@ -61,7 +41,8 @@ public class MatrixState {
     }
 
     public void transition(Point nextPoint){
-        this.currentPoint = nextPoint;
+        if(matrix[nextPoint.x][nextPoint.y] != 1)
+            this.currentPoint = nextPoint;
     }
 
 
